@@ -2,7 +2,8 @@
 
    Visual system
    - Two grounds: the logo's warm charcoal (#231f20) for photography (gateway, projects), warm paper for reading (about, contact).
-   - One typeface (Schibsted Grotesk); IBM Plex Mono only for drawing-style annotations: indices, schedules.
+   - Typefaces match inspire-av.com: Cormorant Garamond for headings, Inter for text.
+     IBM Plex Mono only for drawing-style annotations: indices, schedules.
    - Brass is used for lines and connection nodes only, never for fills or text blocks.
    - Graphics borrow from technical drawings: hairline rules, nodes, crop marks, dimension lines, title blocks.
 
@@ -27,7 +28,8 @@
   --on-dark-2: rgba(241, 238, 232, .68);
   --brass: #b8976a;
 
-  --font: "Schibsted Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font: "Inter", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --serif: "Cormorant Garamond", Garamond, "Times New Roman", serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
 
   --wrap: 1360px;
@@ -137,10 +139,11 @@ address { font-style: normal; }
 }
 
 h1 {
+  font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(2.125rem, 3.8vw, 3.4rem);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
   line-height: 1.02;
-  letter-spacing: -.03em;
+  letter-spacing: -.01em;
 }
 h1 .line { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
 h1 .line > span { display: block; }
@@ -221,10 +224,11 @@ h1 .line > span { display: block; }
 
 .panel-name {
   display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  font-family: var(--serif);
   font-weight: 600;
-  font-size: clamp(1.5rem, 2.3vw, 2.125rem);
-  line-height: 1.08;
-  letter-spacing: -.02em;
+  font-size: clamp(1.75rem, 2.7vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: 0;
 }
 .tag {
   font-family: var(--mono);
@@ -283,10 +287,11 @@ h1 .line > span { display: block; }
 }
 
 .statement {
+  font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(1.75rem, 3.1vw, 2.75rem);
-  line-height: 1.12;
-  letter-spacing: -.025em;
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -.005em;
   max-width: 20ch;
 }
 
@@ -350,10 +355,11 @@ h1 .line > span { display: block; }
 }
 
 .h2 {
+  font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(1.875rem, 3.4vw, 3rem);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
   line-height: 1.05;
-  letter-spacing: -.025em;
+  letter-spacing: -.005em;
 }
 
 .projects-head {
@@ -421,10 +427,11 @@ h1 .line > span { display: block; }
 .project-kind { font-family: var(--mono); font-size: .75rem; color: var(--brass); letter-spacing: .04em; }
 .project h3 {
   margin-top: 10px;
-  font-weight: 500;
-  font-size: clamp(1.5rem, 2.2vw, 2rem);
-  line-height: 1.1;
-  letter-spacing: -.02em;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 2.6vw, 2.375rem);
+  line-height: 1.08;
+  letter-spacing: 0;
 }
 .project-info > p:not(.project-kind) { margin-top: 14px; color: var(--on-dark-2); max-width: 30em; }
 
@@ -470,7 +477,7 @@ h1 .line > span { display: block; }
   padding-block: 20px;
   border-bottom: 1px solid var(--line);
 }
-.c-name { font-weight: 500; font-size: clamp(1.25rem, 2vw, 1.625rem); letter-spacing: -.015em; }
+.c-name { font-family: var(--serif); font-weight: 600; font-size: clamp(1.5rem, 2.4vw, 2rem); letter-spacing: 0; }
 .c-url { font-family: var(--mono); font-size: .8125rem; color: var(--text-2); }
 
 .studio { color: var(--text-2); line-height: 1.7; }
@@ -526,7 +533,7 @@ h1 .line > span { display: block; }
   .nav a { font-size: .875rem; }
 
   .gateway-head { grid-template-columns: 1fr; gap: 12px; padding-top: 18px; padding-bottom: 20px; }
-  h1 { font-size: clamp(2rem, 8.4vw, 2.75rem); }
+  h1 { font-size: clamp(2.375rem, 10vw, 3.25rem); }
   .gateway-intro { font-size: .9375rem; }
 
   /* Services stack as three photographic rows: always-visible names and arrows, no hover needed */
@@ -536,7 +543,7 @@ h1 .line > span { display: block; }
   .panel::before { background: linear-gradient(to right, rgba(35,31,32,.84) 0%, rgba(35,31,32,.47) 60%, rgba(35,31,32,.15) 100%); }
   .panel-body { align-self: center; gap: 4px; padding: 16px 18px; }
   .panel-index { display: none; }
-  .panel-name { font-size: 1.375rem; gap: 8px; }
+  .panel-name { font-size: 1.75rem; gap: 8px; }
   .panel-line { display: none; }
   .panel-link { margin-top: 2px; font-size: .875rem; color: var(--on-dark-2); }
   .marks { inset: 10px; }
