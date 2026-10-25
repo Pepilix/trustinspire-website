@@ -113,9 +113,9 @@ address { font-style: normal; }
   height: var(--header-h);
 }
 
-/* Logo: white lettering on a transparent ground, cropped from the supplied artwork */
+/* Logo: vector trace of the supplied artwork, white on a transparent ground */
 .wordmark { display: block; }
-.wordmark img { width: auto; height: 22px; }
+.wordmark img { width: auto; height: 28px; }
 
 .nav { display: flex; gap: clamp(18px, 2.6vw, 40px); }
 .nav a { font-size: .9375rem; color: var(--on-dark-2); transition: color .25s; }
@@ -513,7 +513,7 @@ h1 .line > span { display: block; }
   font-size: .8125rem;
   color: var(--muted);
 }
-.wordmark--small { width: auto; height: 15px; filter: brightness(0); opacity: .85; }
+.wordmark--small { width: auto; height: 18px; filter: brightness(0); opacity: .85; }
 
 /* Motion ----------------------------------------------------------------- */
 
@@ -551,7 +551,7 @@ h1 .line > span { display: block; }
 
 @media (max-width: 860px) {
   :root { --header-h: 56px; }
-  .wordmark img { height: 19px; }
+  .wordmark img { height: 24px; }
   .nav { gap: 18px; }
   .nav a { font-size: .875rem; }
 
