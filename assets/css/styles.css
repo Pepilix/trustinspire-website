@@ -1,7 +1,7 @@
 /* INSPIRE — trustinspire.com
 
    Visual system
-   - Two grounds: near-black for photography (gateway, projects), warm paper for reading (about, contact).
+   - Two grounds: the logo's warm charcoal (#231f20) for photography (gateway, projects), warm paper for reading (about, contact).
    - One typeface (Schibsted Grotesk); IBM Plex Mono only for drawing-style annotations: indices, schedules.
    - Brass is used for lines and connection nodes only, never for fills or text blocks.
    - Graphics borrow from technical drawings: hairline rules, nodes, crop marks, dimension lines, title blocks.
@@ -15,8 +15,8 @@
 */
 
 :root {
-  --ink: #0e0f10;
-  --ink-2: #17181a;
+  --ink: #231f20;
+  --ink-2: #2c2829;
   --paper: #f1eee8;
   --text: #141414;
   --text-2: #4a4843;
@@ -111,12 +111,9 @@ address { font-style: normal; }
   height: var(--header-h);
 }
 
-.wordmark {
-  font-weight: 700;
-  font-size: 1.1875rem;
-  letter-spacing: .32em;
-  margin-right: -.32em;
-}
+/* Logo: white lettering on a transparent ground, cropped from the supplied artwork */
+.wordmark { display: block; }
+.wordmark img { width: auto; height: 22px; }
 
 .nav { display: flex; gap: clamp(18px, 2.6vw, 40px); }
 .nav a { font-size: .9375rem; color: var(--on-dark-2); transition: color .25s; }
@@ -189,7 +186,7 @@ h1 .line > span { display: block; }
 .panel::before {
   content: "";
   position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(to top, rgba(10, 10, 11, .86) 0%, rgba(10, 10, 11, .35) 42%, rgba(10, 10, 11, 0) 70%);
+  background: linear-gradient(to top, rgba(35, 31, 32, .88) 0%, rgba(35, 31, 32, .38) 42%, rgba(35, 31, 32, 0) 70%);
 }
 
 /* Crop marks, as on a drawing sheet */
@@ -419,6 +416,7 @@ h1 .line > span { display: block; }
 .project--flip .frame--detail { right: auto; left: -24px; }
 .frame--plan { aspect-ratio: 3 / 2; width: 38%; background: #fff; }
 .frame--plan img { object-fit: contain; }
+.frame--soon img { height: 100%; margin-top: 0; }
 
 .project-kind { font-family: var(--mono); font-size: .75rem; color: var(--brass); letter-spacing: .04em; }
 .project h3 {
@@ -447,9 +445,6 @@ h1 .line > span { display: block; }
   margin-top: 24px;
   font-weight: 500;
 }
-
-.projects-more { margin-top: clamp(40px, 5vw, 64px); }
-.projects-more .text-link { margin-top: 0; }
 
 /* 4. Contact ------------------------------------------------------------- */
 
@@ -488,7 +483,7 @@ h1 .line > span { display: block; }
   font-size: .8125rem;
   color: var(--muted);
 }
-.wordmark--small { font-size: .875rem; color: var(--text); }
+.wordmark--small { width: auto; height: 15px; filter: brightness(0); opacity: .85; }
 
 /* Motion ----------------------------------------------------------------- */
 
@@ -526,7 +521,7 @@ h1 .line > span { display: block; }
 
 @media (max-width: 860px) {
   :root { --header-h: 56px; }
-  .wordmark { font-size: 1.0625rem; }
+  .wordmark img { height: 19px; }
   .nav { gap: 18px; }
   .nav a { font-size: .875rem; }
 
@@ -538,7 +533,7 @@ h1 .line > span { display: block; }
   .panels { flex-direction: column; height: auto; gap: 6px; }
   .panels > li { flex: none; }
   .panel { min-height: clamp(132px, 19svh, 190px); }
-  .panel::before { background: linear-gradient(to right, rgba(10,10,11,.82) 0%, rgba(10,10,11,.45) 60%, rgba(10,10,11,.15) 100%); }
+  .panel::before { background: linear-gradient(to right, rgba(35,31,32,.84) 0%, rgba(35,31,32,.47) 60%, rgba(35,31,32,.15) 100%); }
   .panel-body { align-self: center; gap: 4px; padding: 16px 18px; }
   .panel-index { display: none; }
   .panel-name { font-size: 1.375rem; gap: 8px; }
