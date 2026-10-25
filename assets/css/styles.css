@@ -121,6 +121,29 @@ address { font-style: normal; }
 .nav a { font-size: .9375rem; color: var(--on-dark-2); transition: color .25s; }
 .nav a:hover { color: var(--on-dark); }
 
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Burger menu: phones only, and only once main.js is running to open it */
+.menu-toggle { display: none; }
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 24px; height: 1.5px;
+  background: currentColor;
+  transition: transform .35s var(--ease-out), background-color .2s;
+}
+.menu-icon { position: relative; }
+.menu-icon::before, .menu-icon::after { content: ""; position: absolute; left: 0; }
+.menu-icon::before { top: -7px; }
+.menu-icon::after { top: 7px; }
+.site-header.is-open .menu-icon { background-color: transparent; }
+.site-header.is-open .menu-icon::before { transform: translateY(7px) rotate(45deg); }
+.site-header.is-open .menu-icon::after { transform: translateY(-7px) rotate(-45deg); }
+
 /* 1. Gateway ------------------------------------------------------------- */
 
 .gateway {
@@ -531,6 +554,33 @@ h1 .line > span { display: block; }
   .wordmark img { height: 19px; }
   .nav { gap: 18px; }
   .nav a { font-size: .875rem; }
+
+  .js .menu-toggle {
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    margin-right: -10px;
+    padding: 0; border: 0;
+    background: none;
+    color: var(--on-dark);
+    cursor: pointer;
+  }
+  .js .site-nav {
+    display: none;
+    position: absolute; left: 0; right: 0; top: 100%;
+    background: var(--ink);
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .js .site-header.is-open { border-bottom-color: var(--line-dark); }
+  .js .site-header.is-open .site-nav { display: block; }
+  .js .nav { flex-direction: column; gap: 0; padding: 4px var(--gutter) 20px; }
+  .js .nav a {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-dark);
+    font-family: var(--serif);
+    font-size: 1.625rem;
+    color: var(--on-dark);
+  }
 
   .gateway-head { grid-template-columns: 1fr; gap: 12px; padding-top: 18px; padding-bottom: 20px; }
   h1 { font-size: clamp(2.375rem, 10vw, 3.25rem); }

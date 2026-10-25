@@ -6,6 +6,22 @@
   // Header hairline once the page scrolls.
   var header = document.querySelector('.site-header');
 
+  // Burger menu on phones: toggle, then close on link choice or Escape.
+  var toggle = document.querySelector('.menu-toggle');
+  if (header && toggle) {
+    var setOpen = function (open) {
+      header.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    toggle.addEventListener('click', function () { setOpen(!header.classList.contains('is-open')); });
+    header.querySelectorAll('.nav a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header.classList.contains('is-open')) { setOpen(false); toggle.focus(); }
+    });
+  }
+
   // Footer year.
   var year = document.querySelector('[data-year]');
   if (year) year.textContent = new Date().getFullYear();
